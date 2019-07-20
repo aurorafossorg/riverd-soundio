@@ -1,0 +1,47 @@
+{
+	"name": "riverd-soundio",
+	"description": "Dynamic and static D bindings for SoundIO library",
+	"copyright": "Copyright © 2019, Aurora Free Open Source Software",
+	"license": "LGPL-3.0",
+	"authors": [
+		"Luís Ferreira"
+	],
+	"targetType": "staticLibrary",
+	"targetPath": ".out/bin",
+	"importPaths": ["source"],
+	"sourcePaths": ["source"],
+	"configurations": [
+		{
+			"name": "static",
+			"versions": ["RiverD_SoundIO_Static"],
+			"libs": [
+				"soundio"
+			],
+			"excludedSourceFiles": [
+				"source/riverd/soundio/dynfun.d",
+				"source/riverd/soundio/dynload.d"
+			]
+		},
+		{
+			"name": "dynamic",
+			"dependencies": {
+				"riverd-loader": "~>1.0.2"
+			},
+			"excludedSourceFiles": [
+				"source/riverd/soundio/statfun.d"
+			]
+		},
+		{
+			"name": "dynamic-betterc",
+			"dependencies": {
+				"riverd-loader": "~>1.0.2"
+			},
+			"subConfigurations": {
+				"riverd-loader": "betterc"
+			},
+			"excludedSourceFiles": [
+				"source/riverd/soundio/statfun.d"
+			]
+		}
+	]
+}
