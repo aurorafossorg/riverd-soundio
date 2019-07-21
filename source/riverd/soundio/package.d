@@ -41,3 +41,5 @@ version(RiverD_SoundIO_Static) {
 } else {
 	public import riverd.soundio.dynload;
 }
+
+public import riverd.soundio.types;
